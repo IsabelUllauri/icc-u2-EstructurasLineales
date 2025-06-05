@@ -13,6 +13,7 @@ public class Stack {
     public void push (int getValue){
         Node newNode = new Node(getValue);
         newNode.setNext(top);//el primero nodo que llega su next es nulo
+        top = newNode;
     }
 
     public int pop(){
