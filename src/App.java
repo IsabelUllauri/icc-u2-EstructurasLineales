@@ -65,5 +65,12 @@ public class App {
         colaPersonas.printCola();
         
 
+        System.out.println("Maria esta en la posicion "+colaPersonas.findByName("Maria"));
+        System.out.println("Elimina");
+        colaPersonas.removeByName("David");
+        colaPersonas.printCola();
+
+
+
     }
 }

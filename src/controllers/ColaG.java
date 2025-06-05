@@ -64,6 +64,46 @@ public class ColaG<T> {
             System.out.print(current.getValue() + " ");
             current = current.getNext();
         }
+
         System.out.println();
+
+        
+    }
+    public int findByName(String name) {
+        int posicion = 0;
+        NodeGeneric<T> node = primero;
+        while (node != null) {
+            if (node.getValue().toString().equals(name)) {
+                return posicion;
+            }
+            node = node.getNext();
+            posicion++;
+        }
+        return -1;
+    }
+    public void removeByName(String name) {
+        if (isEmpty())
+            throw new EmptyStackException();
+        if (primero.getValue().toString().equals(name)) {
+            primero = primero.getNext();
+            if (primero == null) {
+                ultimo = null;
+            }
+            size--;
+            return;
+        }
+        NodeGeneric<T> actual = primero;
+        NodeGeneric<T> anterior = null;
+        while (actual != null && !actual.getValue().toString().equals(name)) {
+            anterior = actual;
+            actual = actual.getNext();
+        }
+        if (actual != null) {
+            anterior.setNext(actual.getNext());
+            if (actual == ultimo) {
+                ultimo = anterior;
+            }
+            size--;
+        }    
     }
 }
