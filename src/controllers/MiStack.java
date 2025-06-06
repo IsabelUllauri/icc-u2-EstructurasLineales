@@ -4,10 +4,10 @@ import java.util.EmptyStackException;
 
 import models.Node;
 
-public class Stack {
+public class MiStack {
     private Node top;
 
-    public Stack() {
+    public MiStack() {
         this.top=null;
     }
     public void push (int getValue){

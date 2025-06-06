@@ -1,13 +1,17 @@
 
 import controllers.Cola;
 import controllers.ColaG;
-import controllers.Stack;
+import controllers.MiStack;
 import controllers.StackG;
+import ejercicio_01_sign.SignValidator;
+import ejercicio_02_sorting.StackSorter;
 import models.Persona;
+import java.util.Stack;
+
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Stack stack = new Stack();
+        MiStack stack = new MiStack();
         stack.push(10);
         stack.push(-1);
         stack.push (0);
@@ -30,8 +34,8 @@ public class App {
         stackG1.push("Cuatro");
         stackG1.printStack();
 
-        //FIFO  - PRIMERO EN ENTRAR, PRIMERO EN SALIR
-        //Colas
+        //FIFO=frist in first out
+      
         System.out.println("\nColas");
 
         // Cola no generica
@@ -70,7 +74,24 @@ public class App {
         colaPersonas.removeByName("David");
         colaPersonas.printCola();
 
+        SignValidator validator = new SignValidator();
 
+        System.out.println(validator.isValid("([]){}"));    
+        System.out.println(validator.isValid("({)}"));     
+
+        Stack<Integer> pila = new Stack<>();
+        pila.push(5);
+        pila.push(1);
+        pila.push(4);
+        pila.push(2);
+
+        StackSorter sorter = new StackSorter();
+        sorter.sortStack(pila); 
+
+        while (!pila.isEmpty()) {
+            System.out.print(pila.pop() + " ");  // 1 2 4 5
+        }
+       
 
     }
 }
